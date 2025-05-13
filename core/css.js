@@ -462,7 +462,7 @@ Blockly.Css.CONTENT = [
   '.blocklyText {',
     'fill: $colour_text;',
     'font-family: "Roboto", Helvetica, sans-serif;',
-    'font-size: 14px;',
+    'font-size: 16px;',
     'font-weight: 700;',
   '}',
 
