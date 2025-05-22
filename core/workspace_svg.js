@@ -1231,7 +1231,7 @@ Blockly.WorkspaceSvg.prototype.isDeleteArea = function(e) {
     return Blockly.DELETE_AREA_TRASH;
   }
   if (this.deleteAreaToolbox_ && this.deleteAreaToolbox_.contains(xy)) {
-    return Blockly.DELETE_AREA_TOOLBOX;
+    return (this.toolbox_ && this.toolbox_.flyout_ && this.toolbox_.flyout_.isVisible()) ? Blockly.DELETE_AREA_TOOLBOX : Blockly.DELETE_AREA_NONE;
   }
   return Blockly.DELETE_AREA_NONE;
 };
@@ -1987,7 +1987,7 @@ Blockly.WorkspaceSvg.getTopLevelWorkspaceMetrics_ = function() {
   // Contains height and width in CSS pixels.
   // svgSize is equivalent to the size of the injectionDiv at this point.
   var svgSize = Blockly.svgSize(this.getParentSvg());
-  if (this.toolbox_) {
+  if (this.toolbox_ && this.toolbox_.flyout_ && this.toolbox_.flyout_.isVisible()) {
     if (this.toolboxPosition == Blockly.TOOLBOX_AT_TOP ||
         this.toolboxPosition == Blockly.TOOLBOX_AT_BOTTOM) {
       svgSize.height -= toolboxDimensions.height;
@@ -2002,12 +2002,12 @@ Blockly.WorkspaceSvg.getTopLevelWorkspaceMetrics_ = function() {
   var contentDimensions =
       Blockly.WorkspaceSvg.getContentDimensions_(this, svgSize);
 
-  var absoluteLeft = 0;
-  if (this.toolbox_ && this.toolboxPosition == Blockly.TOOLBOX_AT_LEFT) {
+  var absoluteLeft = Blockly.ABSOLUTE_LEFT_DEFULT;
+  if (this.toolbox_ && this.toolbox_.flyout_ && this.toolbox_.flyout_.isVisible() && this.toolboxPosition == Blockly.TOOLBOX_AT_LEFT) {
     absoluteLeft = toolboxDimensions.width;
   }
   var absoluteTop = 0;
-  if (this.toolbox_ && this.toolboxPosition == Blockly.TOOLBOX_AT_TOP) {
+  if (this.toolbox_ && this.toolbox_.flyout_ && this.toolbox_.flyout_.isVisible() && this.toolboxPosition == Blockly.TOOLBOX_AT_TOP) {
     absoluteTop = toolboxDimensions.height;
   }
 
@@ -2028,8 +2028,8 @@ Blockly.WorkspaceSvg.getTopLevelWorkspaceMetrics_ = function() {
     toolboxWidth: toolboxDimensions.width,
     toolboxHeight: toolboxDimensions.height,
 
-    flyoutWidth: flyoutDimensions.width,
-    flyoutHeight: flyoutDimensions.height,
+    flyoutWidth: (this.toolbox_ && this.toolbox_.flyout_ && this.toolbox_.flyout_.isVisible()) ? flyoutDimensions.width : 0,
+    flyoutHeight: (this.toolbox_ && this.toolbox_.flyout_ && this.toolbox_.flyout_.isVisible()) ? flyoutDimensions.height : 0,
 
     toolboxPosition: this.toolboxPosition
   };

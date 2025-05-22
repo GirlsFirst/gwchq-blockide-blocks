@@ -415,6 +415,7 @@ Blockly.Flyout.prototype.setVisible = function(visible) {
  * @param {boolean} visible Whether the container is visible.
  */
 Blockly.Flyout.prototype.setContainerVisible = function(visible) {
+
   var visibilityChanged = (visible != this.containerVisible_);
   this.containerVisible_ = visible;
   if (visibilityChanged) {
@@ -468,7 +469,9 @@ Blockly.Flyout.prototype.hide = function() {
  */
 Blockly.Flyout.prototype.show = function(xmlList) {
   this.workspace_.setResizesEnabled(false);
-  this.hide();
+  if (this.isVisible()) {
+    this.hide();
+  }
   this.clearOldBlocks_();
 
   this.setVisible(true);

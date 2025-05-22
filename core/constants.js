@@ -230,6 +230,7 @@ Blockly.TOOLBOX_AT_BOTTOM = 1;
  */
 Blockly.TOOLBOX_AT_LEFT = 2;
 
+
 /**
  * ENUM for toolbox and flyout at right of screen.
  * @const
@@ -307,6 +308,13 @@ Blockly.VARIABLE_CATEGORY_NAME = 'VARIABLE';
  * @const {string}
  */
 Blockly.PROCEDURE_CATEGORY_NAME = 'PROCEDURE';
+
+/**
+ * Number for absolute left position for case when flyout is hidden.
+ * @const
+ */
+Blockly.ABSOLUTE_LEFT_DEFULT = 100;
+
 
 /**
  * String for use in the dropdown created in field_variable.
