@@ -133,7 +133,7 @@ Blockly.BlockSvg.STATEMENT_INPUT_EDGE_WIDTH = 4 * Blockly.BlockSvg.GRID_UNIT;
  * Inner space between edge of statement input and notch.
  * @const
  */
-Blockly.BlockSvg.STATEMENT_INPUT_INNER_SPACE = 2 * Blockly.BlockSvg.GRID_UNIT;
+Blockly.BlockSvg.STATEMENT_INPUT_INNER_SPACE = 4 * Blockly.BlockSvg.GRID_UNIT;
 
 /**
  * Height of the top hat.
