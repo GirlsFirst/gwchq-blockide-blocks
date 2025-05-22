@@ -504,6 +504,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyFlyoutButton .blocklyText {',
     'fill: $colour_textFieldText;',
+    'font-family: "Roboto Flex";',
   '}',
 
   '.blocklyFlyoutButtonShadow {',
@@ -529,7 +530,7 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyFlyoutLabelText {',
-    'font-family: "Helvetica Neue", Helvetica, sans-serif;',
+    'font-family: "Roboto Flex", Helvetica, sans-serif;',
     'font-size: 14pt;',
     'fill: #575E75;',
     'font-weight: bold;',
