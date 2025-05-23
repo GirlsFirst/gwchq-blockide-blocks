@@ -313,7 +313,7 @@ Blockly.PROCEDURE_CATEGORY_NAME = 'PROCEDURE';
  * Number for absolute left position for case when flyout is hidden.
  * @const
  */
-Blockly.ABSOLUTE_LEFT_DEFULT = 100;
+Blockly.ABSOLUTE_LEFT_DEFAULT = 100;
 
 
 /**

@@ -2002,7 +2002,7 @@ Blockly.WorkspaceSvg.getTopLevelWorkspaceMetrics_ = function() {
   var contentDimensions =
       Blockly.WorkspaceSvg.getContentDimensions_(this, svgSize);
 
-  var absoluteLeft = Blockly.ABSOLUTE_LEFT_DEFULT;
+  var absoluteLeft = Blockly.ABSOLUTE_LEFT_DEFAULT;
   if (this.toolbox_ && this.toolbox_.flyout_ && this.toolbox_.flyout_.isVisible() && this.toolboxPosition == Blockly.TOOLBOX_AT_LEFT) {
     absoluteLeft = toolboxDimensions.width;
   }
