@@ -1098,7 +1098,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyDropDownDiv .goog-menuitem {',
     'color: $colour_text;',
-    'font: normal 13px "Helvetica Neue", Helvetica, sans-serif;',
+    'font: normal 13px "Roboto", Helvetica, sans-serif;',
     'font-weight: bold;',
     'list-style: none;',
     'margin: 0;',
@@ -1137,7 +1137,7 @@ Blockly.Css.CONTENT = [
   '.blocklyWidgetDiv .goog-menuitem-content ',
   '.blocklyDropDownDiv .goog-menuitem-content {',
     'color: #000;',
-    'font: normal 13px "Helvetica Neue", Helvetica, sans-serif;',
+    'font: normal 13px "Roboto", Helvetica, sans-serif;',
   '}',
 
   /* State: disabled. */
