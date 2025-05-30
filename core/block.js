@@ -865,9 +865,10 @@ Blockly.Block.prototype.makeColour_ = function(colour) {
  * @param {number|string} colourSecondary HSV hue value, or #RRGGBB string.
  * @param {number|string} colourTertiary HSV hue value, or #RRGGBB string.
  * @param {number|string} colourQuaternary HSV hue value, or #RRGGBB string.
+ * @param {number|string} colourControls HSV hue value, or #RRGGBB string.
  */
 Blockly.Block.prototype.setColour = function(colour, colourSecondary, colourTertiary,
-    colourQuaternary) {
+    colourQuaternary, colourControls) {
   this.colour_ = this.makeColour_(colour);
   if (colourSecondary !== undefined) {
     this.colourSecondary_ = this.makeColour_(colourSecondary);
@@ -885,6 +886,12 @@ Blockly.Block.prototype.setColour = function(colour, colourSecondary, colourTert
     this.colourQuaternary_ = this.makeColour_(colourQuaternary);
   } else {
     this.colourQuaternary_ = this.colourTertiary_;
+  }
+  if (colourControls !== undefined) {
+    this.colorControls_ = this.makeColour_(colourControls);
+    if (this.parentBlock_) {
+      this.parentBlock_.colorControls_ = this.makeColour_(colourControls);
+    }
   }
   if (this.rendered) {
     this.updateColour();

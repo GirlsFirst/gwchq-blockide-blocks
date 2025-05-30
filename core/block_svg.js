@@ -1062,11 +1062,13 @@ Blockly.BlockSvg.prototype.setDeleteStyle = function(enable) {
  *    string.
  * @param {number|string} colourQuaternary Quaternary HSV hue value, or #RRGGBB
  *    string.
+ * @param {number|string} colourControls Controls HSV hue value, or #RRGGBB
+ *    string.
  */
 Blockly.BlockSvg.prototype.setColour = function(colour, colourSecondary,
-    colourTertiary, colourQuaternary) {
+    colourTertiary, colourQuaternary, colourControls) {
   Blockly.BlockSvg.superClass_.setColour.call(this, colour, colourSecondary,
-      colourTertiary, colourQuaternary);
+      colourTertiary, colourQuaternary, colourControls);
 
   if (this.rendered) {
     this.updateColour();
