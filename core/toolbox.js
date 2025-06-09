@@ -191,9 +191,16 @@ Blockly.Toolbox.prototype.createFlyout_ = function() {
  * @private
  */
 Blockly.Toolbox.prototype.populate_ = function(newTree) {
+  const isVisible = this.flyout_ ? this.flyout_.isVisible() : true;
+
   this.categoryMenu_.populate(newTree);
   this.showAll_();
   this.setSelectedItem(this.categoryMenu_.categories_[0], false);
+
+  if (this.flyout_ && !isVisible) {
+      this.flyout_.hide();
+    }
+  }
 };
 
 /**
