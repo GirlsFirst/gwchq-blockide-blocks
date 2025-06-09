@@ -198,8 +198,7 @@ Blockly.Toolbox.prototype.populate_ = function(newTree) {
   this.setSelectedItem(this.categoryMenu_.categories_[0], false);
 
   if (this.flyout_ && !isVisible) {
-      this.flyout_.hide();
-    }
+    this.flyout_.hide();
   }
 };
 
