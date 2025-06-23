@@ -42,7 +42,6 @@ goog.require('goog.events');
  * @constructor
  */
 Blockly.ScrollbarPair = function(workspace) {
-  console.log("Blockly.ScrollbarPair")
   this.workspace_ = workspace;
   this.hScroll = new Blockly.Scrollbar(
       workspace, true, true, 'blocklyMainWorkspaceScrollbar');
@@ -86,15 +85,12 @@ Blockly.ScrollbarPair.prototype.dispose = function() {
  * Also reposition the corner rectangle.
  */
 Blockly.ScrollbarPair.prototype.resize = function() {
-  console.log("Blockly.ScrollbarPair.prototype.resize")
-
   // Look up the host metrics once, and use for both scrollbars.
   var hostMetrics = this.workspace_.getMetrics();
   if (!hostMetrics) {
     // Host element is likely not visible.
     return;
   }
-  console.log("Blockly.ScrollbarPair.prototype.resize2", hostMetrics)
 
   // Only change the scrollbars if there has been a change in metrics.
   var resizeH = false;
@@ -123,8 +119,6 @@ Blockly.ScrollbarPair.prototype.resize = function() {
     }
   }
   if (resizeH) {
-    console.log("Blockly.ScrollbarPair.prototype.resize3", hostMetrics)
-
     this.hScroll.resize(hostMetrics);
   }
   if (resizeV) {
@@ -135,8 +129,6 @@ Blockly.ScrollbarPair.prototype.resize = function() {
   if (!this.oldHostMetrics_ ||
       this.oldHostMetrics_.viewWidth != hostMetrics.viewWidth ||
       this.oldHostMetrics_.absoluteLeft != hostMetrics.absoluteLeft) {
-    console.log("Blockly.ScrollbarPair.prototype.resize4", this.vScroll.position_.x)
-
     this.corner_.setAttribute('x', this.vScroll.position_.x);
   }
   if (!this.oldHostMetrics_ ||
@@ -206,8 +198,6 @@ Blockly.ScrollbarPair.prototype.getRatio_ = function(handlePosition, viewSize) {
  * @constructor
  */
 Blockly.Scrollbar = function(workspace, horizontal, opt_pair, opt_class) {
-  console.log("Blockly.Scrollbar", horizontal, opt_pair, opt_class);
-
   this.workspace_ = workspace;
   this.pair_ = opt_pair || false;
   this.horizontal_ = horizontal;
@@ -413,19 +403,9 @@ Blockly.Scrollbar.prototype.setPosition_ = function(x, y) {
   this.position_.x = x;
   this.position_.y = y;
 
-  console.log("Blockly.Scrollbar.prototype.setPosition_0", this.position_.x)
-
-  if (100.5 == this.position_.x) {
-    this.position_.x = 0;
-  }
-
   var tempX = this.position_.x + this.origin_.x;
   var tempY = this.position_.y + this.origin_.y;
   var transform = 'translate(' + tempX + 'px,' + tempY + 'px)';
-
-  console.log("Blockly.Scrollbar.prototype.setPosition_", this.position_, this.origin_, tempX, tempY)
-  console.log("Blockly.Scrollbar.prototype.setPosition_2", transform);
-  console.trace();
 
   Blockly.utils.setCssTransform(this.outerSvg_, transform);
 };
@@ -437,8 +417,6 @@ Blockly.Scrollbar.prototype.setPosition_ = function(x, y) {
  * object.
  */
 Blockly.Scrollbar.prototype.resize = function(opt_metrics) {
-  console.log("Blockly.Scrollbar.prototype.resize", opt_metrics);
-
   // Determine the location, height and width of the host element.
   var hostMetrics = opt_metrics;
   if (!hostMetrics) {
