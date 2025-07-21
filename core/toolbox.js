@@ -89,7 +89,7 @@ Blockly.Toolbox = function(workspace) {
  * This is the sum of the width of the flyout (250) and the category menu (60).
  * @type {number}
  */
-Blockly.Toolbox.prototype.width = 310;
+Blockly.Toolbox.prototype.width = 360;
 
 /**
  * Height of the toolbox, which changes only in horizontal layout.
@@ -98,6 +98,12 @@ Blockly.Toolbox.prototype.width = 310;
 Blockly.Toolbox.prototype.height = 0;
 
 Blockly.Toolbox.prototype.selectedItem_ = null;
+
+/**
+ * Is this setSelectedItem was called after mousedown event.
+ * @type {boolean}
+ */
+Blockly.Toolbox.prototype.isAfterMouseDown = false;
 
 /**
  * Initializes the toolbox.
@@ -118,6 +124,8 @@ Blockly.Toolbox.prototype.init = function() {
   // Clicking on toolbox closes popups.
   Blockly.bindEventWithChecks_(this.HtmlDiv, 'mousedown', this,
       function(e) {
+        this.isAfterMouseDown = true;
+
         // Cancel any gestures in progress.
         this.workspace_.cancelCurrentGesture();
         if (Blockly.utils.isRightButton(e) || e.target == this.HtmlDiv) {
@@ -183,9 +191,15 @@ Blockly.Toolbox.prototype.createFlyout_ = function() {
  * @private
  */
 Blockly.Toolbox.prototype.populate_ = function(newTree) {
+  const isVisible = this.flyout_ ? this.flyout_.isVisible() : true;
+
   this.categoryMenu_.populate(newTree);
   this.showAll_();
   this.setSelectedItem(this.categoryMenu_.categories_[0], false);
+
+  if (this.flyout_ && !isVisible) {
+    this.flyout_.hide();
+  }
 };
 
 /**
@@ -446,6 +460,30 @@ Blockly.Toolbox.prototype.setSelectedItem = function(item, opt_shouldScroll) {
     // They selected a different category but one was already open.  Close it.
     this.selectedItem_.setSelected(false);
   }
+
+  //Hide or show flyout after click a button  on toolbar.
+  //Make block palette visible in any case if it's not visible
+  //Hide ONLY if it was a click (mousedown event) on category which is already selected.
+  if (this.isAfterMouseDown) {
+    if (!this.flyout_.isVisible()) {
+      this.showAll_();
+      //Force workspace scrollbar recalculation
+      if (this.workspace_ && this.workspace_.scrollbar) {
+        this.workspace_.scrollbar.resize();
+      }
+    } else if (this.selectedItem_ !== null && this.selectedItem_.id_ === item.id_){
+      this.flyout_.hide();
+      //Force workspace scrollbar recalculation
+      if (this.workspace_ && this.workspace_.scrollbar) {
+        this.workspace_.scrollbar.resize();
+      }
+      //Send resize event to rerender workspace with correct positions.
+      window.dispatchEvent(new Event('resize'));
+    }
+  }
+
+  this.isAfterMouseDown = false;
+
   this.selectedItem_ = item;
   if (this.selectedItem_ != null) {
     this.selectedItem_.setSelected(true);
@@ -501,8 +539,9 @@ Blockly.Toolbox.prototype.scrollToCategoryById = function(id) {
   var scrollPositions = this.flyout_.categoryScrollPositions;
   for (var i = 0; i < scrollPositions.length; i++) {
     if (id === scrollPositions[i].categoryId) {
-      this.flyout_.setVisible(true);
-      this.flyout_.scrollTo(scrollPositions[i].position);
+      if (this.flyout_.isVisible()) {
+        this.flyout_.scrollTo(scrollPositions[i].position);
+      }
       return;
     }
   }

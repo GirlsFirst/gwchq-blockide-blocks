@@ -36,7 +36,7 @@ goog.require('Blockly.utils');
 * Grid unit to pixels conversion
 * @const
 */
-Blockly.BlockSvg.GRID_UNIT = 4;
+Blockly.BlockSvg.GRID_UNIT = 5;
 
 /**
  * Horizontal space between elements.
@@ -109,7 +109,7 @@ Blockly.BlockSvg.MIN_STATEMENT_INPUT_HEIGHT = 6 * Blockly.BlockSvg.GRID_UNIT;
  * Width of vertical notch.
  * @const
  */
-Blockly.BlockSvg.NOTCH_WIDTH = 8 * Blockly.BlockSvg.GRID_UNIT;
+Blockly.BlockSvg.NOTCH_WIDTH = 6 * Blockly.BlockSvg.GRID_UNIT;
 
 /**
  * Height of vertical notch.
@@ -133,7 +133,7 @@ Blockly.BlockSvg.STATEMENT_INPUT_EDGE_WIDTH = 4 * Blockly.BlockSvg.GRID_UNIT;
  * Inner space between edge of statement input and notch.
  * @const
  */
-Blockly.BlockSvg.STATEMENT_INPUT_INNER_SPACE = 2 * Blockly.BlockSvg.GRID_UNIT;
+Blockly.BlockSvg.STATEMENT_INPUT_INNER_SPACE = 4 * Blockly.BlockSvg.GRID_UNIT;
 
 /**
  * Height of the top hat.
@@ -186,7 +186,7 @@ Blockly.BlockSvg.NOTCH_PATH_RIGHT = (
  * Amount of padding before the notch.
  * @const
  */
-Blockly.BlockSvg.NOTCH_START_PADDING = 3 * Blockly.BlockSvg.GRID_UNIT;
+Blockly.BlockSvg.NOTCH_START_PADDING = 5 * Blockly.BlockSvg.GRID_UNIT;
 
 /**
  * SVG start point for drawing the top-left corner.
@@ -351,7 +351,7 @@ Blockly.BlockSvg.BOX_FIELD_PADDING = 2 * Blockly.BlockSvg.GRID_UNIT;
  * Drop-down arrow padding.
  * @const
  */
-Blockly.BlockSvg.DROPDOWN_ARROW_PADDING = 2 * Blockly.BlockSvg.GRID_UNIT;
+Blockly.BlockSvg.DROPDOWN_ARROW_PADDING = 3 * Blockly.BlockSvg.GRID_UNIT;
 
 /**
  * Minimum width of user inputs during editing

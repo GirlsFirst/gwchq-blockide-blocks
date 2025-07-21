@@ -462,7 +462,7 @@ Blockly.Css.CONTENT = [
   '.blocklyText {',
     'fill: $colour_text;',
     'font-family: "Roboto", Helvetica, sans-serif;',
-    'font-size: 14px;',
+    'font-size: 16px;',
     'font-weight: 700;',
   '}',
 
@@ -504,6 +504,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyFlyoutButton .blocklyText {',
     'fill: $colour_textFieldText;',
+    'font-family: "Roboto Flex";',
   '}',
 
   '.blocklyFlyoutButtonShadow {',
@@ -529,7 +530,7 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyFlyoutLabelText {',
-    'font-family: "Helvetica Neue", Helvetica, sans-serif;',
+    'font-family: "Roboto Flex", Helvetica, sans-serif;',
     'font-size: 14pt;',
     'fill: #575E75;',
     'font-weight: bold;',
@@ -1097,7 +1098,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyDropDownDiv .goog-menuitem {',
     'color: $colour_text;',
-    'font: normal 13px "Helvetica Neue", Helvetica, sans-serif;',
+    'font: normal 13px "Roboto", Helvetica, sans-serif;',
     'font-weight: bold;',
     'list-style: none;',
     'margin: 0;',
@@ -1136,7 +1137,7 @@ Blockly.Css.CONTENT = [
   '.blocklyWidgetDiv .goog-menuitem-content ',
   '.blocklyDropDownDiv .goog-menuitem-content {',
     'color: #000;',
-    'font: normal 13px "Helvetica Neue", Helvetica, sans-serif;',
+    'font: normal 13px "Roboto", Helvetica, sans-serif;',
   '}',
 
   /* State: disabled. */

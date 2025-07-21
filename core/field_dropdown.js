@@ -122,11 +122,11 @@ Blockly.FieldDropdown.prototype.init = function() {
   // Add dropdown arrow: "option ▾" (LTR) or "▾ אופציה" (RTL)
   // Positioned on render, after text size is calculated.
   /** @type {Number} */
-  this.arrowSize_ = 12;
+  this.arrowSize_ = 14;
   /** @type {Number} */
   this.arrowX_ = 0;
   /** @type {Number} */
-  this.arrowY_ = 11;
+  this.arrowY_ = 14;
   this.arrow_ = Blockly.utils.createSvgElement('image', {
     'height': this.arrowSize_ + 'px',
     'width': this.arrowSize_ + 'px'
