@@ -484,7 +484,7 @@ Blockly.Scrollbar.prototype.resizeViewHorizontal = function(hostMetrics) {
   }
   this.setScrollViewSize_(Math.max(0, viewSize));
 
-  var xCoordinate = hostMetrics.absoluteLeft - Blockly.ABSOLUTE_LEFT_DEFAULT + 0.5;
+  var xCoordinate = hostMetrics.absoluteLeft - 1.5 * Blockly.ABSOLUTE_LEFT_DEFAULT + 0.5;
   if (this.pair_ && this.workspace_.RTL) {
     xCoordinate += Blockly.Scrollbar.scrollbarThickness;
   }
