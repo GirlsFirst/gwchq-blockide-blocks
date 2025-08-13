@@ -406,6 +406,7 @@ Blockly.Scrollbar.prototype.setPosition_ = function(x, y) {
   var tempX = this.position_.x + this.origin_.x;
   var tempY = this.position_.y + this.origin_.y;
   var transform = 'translate(' + tempX + 'px,' + tempY + 'px)';
+
   Blockly.utils.setCssTransform(this.outerSvg_, transform);
 };
 
@@ -483,7 +484,7 @@ Blockly.Scrollbar.prototype.resizeViewHorizontal = function(hostMetrics) {
   }
   this.setScrollViewSize_(Math.max(0, viewSize));
 
-  var xCoordinate = hostMetrics.absoluteLeft + 0.5;
+  var xCoordinate = hostMetrics.absoluteLeft - 1.5 * Blockly.ABSOLUTE_LEFT_DEFAULT + 0.5;
   if (this.pair_ && this.workspace_.RTL) {
     xCoordinate += Blockly.Scrollbar.scrollbarThickness;
   }
