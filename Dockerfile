@@ -1,7 +1,5 @@
 FROM 081679173013.dkr.ecr.us-west-2.amazonaws.com/gwc-node:24.18.0-alpine3.24 AS build
 
-ARG ENVIRONMENT=development
-
 # google-closure-compiler is a Java 8-era jar: keep JRE 11, do not bump to 17+.
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 ENV PATH=$PATH:$JAVA_HOME/bin
