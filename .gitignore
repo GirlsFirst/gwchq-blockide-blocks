@@ -1,9 +1,9 @@
 # OSX
 .DS_Store
 
-# NPM
+# Dependencies
 /node_modules
-npm-*
+*.log
 
 # Localization / I18N
 common.pyc
@@ -44,3 +44,6 @@ python_compressed.js
 /*compiler*.jar
 /local_blockly_compressed_vertical.js
 /chromedriver
+
+# lockfile
+package-lock.json
